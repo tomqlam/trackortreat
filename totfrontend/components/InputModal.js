@@ -135,7 +135,6 @@ const InputModal = ({dropping, setDropping, apiCandy, getIdFromCandy, candyTypes
                   Cancel
                 </Button>
                 <Button onPress={() => {
-                  postPath();
                 postReq(prepareHouseData());
                 setDropping(false);
                 setShowModal(false);
