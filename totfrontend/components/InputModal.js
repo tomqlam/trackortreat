@@ -1,12 +1,12 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { useState, useEffect } from "react";
-import { Radio, Heading, Modal, FormControl, Input, Checkbox, NativeBaseProvider, Text, Box, Button, Center } from "native-base";
+import { ScrollView, Radio, Heading, Modal, FormControl, Input, Checkbox, NativeBaseProvider, Text, Box, Button, Center } from "native-base";
 
-const InputModal = ({candyTypes, pinLocation, updateHouses}) => {
+const InputModal = ({apiCandy, getIdFromCandy, candyTypes, pinLocation, updateHouses}) => {
     const [showModal, setShowModal] = useState(false);
     const [bowl, setBowl] = React.useState("door");
-    const [groupValues, setGroupValues] = useState(candyTypes.map((candy) => false));
+    const [groupValues, setGroupValues] = useState(apiCandy.map((candy) => false));
     const [bigCandy, setBigCandy] = useState(false);
 
     const [isLoading, setLoading] = useState(true);
@@ -54,11 +54,13 @@ const InputModal = ({candyTypes, pinLocation, updateHouses}) => {
 
       }
       for (var i = 0; i < groupValues.length; i++){
-        data.candyflags[candyTypes[i]] = groupValues[i];
+        console.log(apiCandy[i].candyid);
+        data.candyflags[apiCandy[i].candyid] = groupValues[i];
       }
       if (bowl == "none"){
         data.hascandy = false;
       }
+      console.log(data);
       return data;
 
       
@@ -89,15 +91,20 @@ const InputModal = ({candyTypes, pinLocation, updateHouses}) => {
       <Radio value="door" my={1}>
         Knock on door
       </Radio>
+      <Text my={1}>BIG candy?</Text>
+              <Checkbox isDisabled={bowl=="none"} value="test" accessibilityLabel="This is a dummy checkbox" onPress={() => setBigCandy(!bigCandy)}>Yes!</Checkbox>
     </Radio.Group>
+    
             
             <Text my={1}>Candy offered here</Text>
-              {candyTypes.map((candy, index) => 
-                    <Checkbox isDisabled={bowl=="none"} my={1} key={String(index)} onPress={() => checkedItem(index)}>{candy}</Checkbox>
+            
+            <ScrollView>
+              {apiCandy && apiCandy.map((candy, index) => 
+                    <Checkbox isDisabled={bowl=="none"} my={1} key={String(index)} onPress={() => checkedItem(index)}>{candy.candyname}</Checkbox>
                 )} 
+                </ScrollView>
               
-              <Text my={1}>BIG candy?</Text>
-              <Checkbox value="test" accessibilityLabel="This is a dummy checkbox" onPress={() => setBigCandy(!bigCandy)}>Yes!</Checkbox>
+              
             </Modal.Body>
             <Modal.Footer>
               <Button.Group space={2}>

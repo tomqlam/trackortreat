@@ -1,6 +1,6 @@
 
 import { StyleSheet, View } from 'react-native';
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import { NativeBaseProvider, Text, Box, extendTheme, Button} from "native-base";
 import Map from './components/Map';
@@ -14,6 +14,9 @@ const candyTypes = [
 ]
 
 export default function App() {
+  const [isLoading, setLoading] = useState(true);
+  const [apiHouses, setApiHouses] = useState([]); 
+  const [apiCandy, setApiCandy] = useState(null)
   const theme = extendTheme({
     colors: {
       // Add new color
@@ -42,10 +45,45 @@ export default function App() {
       initialColorMode: 'dark',
     },
   });
+const getApiCandy = () => {
+  return fetch("https://trackortreat-backend.herokuapp.com/api/candy")
+    .then((response) => response.json())
+    .then((json) => {
+      setApiCandy(json);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
+  const getApiData = async () => {
+  
+     try {
+      const response = await fetch("https://trackortreat-backend.herokuapp.com/api/house");
+      const json = await response.json();
+      setApiHouses(json);
+
+      
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+      console.log(apiHouses.length);
+
+    }
+  }
+
+  useEffect(() => {
+    getApiData();
+  }, [apiHouses])
+  useEffect(() => {
+    getApiCandy();
+  }, [])
+
   return (
     <NativeBaseProvider theme={theme}>
       
-      <Map candyTypes={candyTypes} />
+      <Map setApiHouses={setApiHouses} apiCandy={apiCandy} apiHouses={apiHouses} candyTypes={candyTypes} />
       
       {/* <Preferences candyTypes={candyTypes} /> */}
     </NativeBaseProvider>

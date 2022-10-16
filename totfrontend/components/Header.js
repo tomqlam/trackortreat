@@ -9,7 +9,7 @@ import InputModal from './InputModal'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Preferences from './Preferences';
 
-const Header = ({filterOn, setFilterOn, setGroupValues, groupValues, showSettings, setShowSettings, candyTypes}) => {
+const Header = ({apiCandy, filterOn, setFilterOn, setGroupValues, groupValues, showSettings, setShowSettings, candyTypes}) => {
   return (
     <View top={0} position="absolute" zIndex={5} width="100%" height="12%" backgroundColor="#f89305">
         <Button variant="unstyled" zIndex={40}  position="absolute" bottom={2} marginLeft={5} onPress={()=>{
@@ -18,12 +18,12 @@ const Header = ({filterOn, setFilterOn, setGroupValues, groupValues, showSetting
         <Center pb={5} h="100%" justifyContent="center" alignItems={"flex-end"} flexDirection="row">
 
             <Heading color="white">track o' treat</Heading>
-            <Preferences filterOn={filterOn} setFilterOn={setFilterOn} setGroupValues={setGroupValues} groupValues={groupValues} showSettings={showSettings} setShowSettings={setShowSettings} candyTypes={candyTypes}/>
+            <Preferences apiCandy={apiCandy} filterOn={filterOn} setFilterOn={setFilterOn} setGroupValues={setGroupValues} groupValues={groupValues} showSettings={showSettings} setShowSettings={setShowSettings} candyTypes={candyTypes}/>
         
         </Center>
 
     </View>
   )
 }
-
+//<ion-icon name="information-circle-outline"></ion-icon>
 export default Header

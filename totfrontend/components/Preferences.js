@@ -7,7 +7,7 @@ import { VStack, Switch, Checkbox, Heading, NativeBaseProvider, Text, Box, Butto
 import * as Location from 'expo-location';
 import InputModal from './InputModal'
 
-const Preferences = ({filterOn, setFilterOn, setGroupValues, groupValues, showSettings, setShowSettings, candyTypes}) => {
+const Preferences = ({apiCandy, filterOn, setFilterOn, setGroupValues, groupValues, showSettings, setShowSettings, candyTypes}) => {
   
   const checkedItem =(index) => {
       let dummy = groupValues;
@@ -30,8 +30,8 @@ const Preferences = ({filterOn, setFilterOn, setGroupValues, groupValues, showSe
             }}></Switch>
             <Heading size="sm" >Preferred candies:</Heading>
             <Box l="0">
-              {candyTypes.map((candy, index) => 
-                    <Checkbox isDisabled={!filterOn} key={String(index)} onChange={() => checkedItem(index)}>{candy}</Checkbox>
+              {apiCandy && apiCandy.map((candy, index) => 
+                    <Checkbox isDisabled={!filterOn} key={String(index)} onChange={() => checkedItem(index)}>{candy.candyname}</Checkbox>
                 )} 
                 </Box>
                 </VStack>

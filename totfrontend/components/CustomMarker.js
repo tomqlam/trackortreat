@@ -6,8 +6,14 @@ import { Marker } from "react-native-maps";
 import { NativeBaseProvider, Text, Box, Button, Center, Input } from "native-base";
 import * as Location from 'expo-location';
 
-const CustomMarker = ({ houseDetails, onPress, latitude, longitude}) => {
-
+const CustomMarker = ({ houseDetails, onPress, latitude, longitude, filterOn, filters}) => {
+    const shouldShow = () => {
+        if (filterOn){
+            //check if this has the right candies
+        } 
+        //else filter off
+        return true;
+    }
     const decideIcon = (houseDetails) => {
         if (!houseDetails){
             return "down"
@@ -40,6 +46,7 @@ const CustomMarker = ({ houseDetails, onPress, latitude, longitude}) => {
     var url = getURL();
   return (
         <Marker
+
       coordinate={{ latitude : latitude , longitude : longitude }}
       onPress={onPress}
     >
