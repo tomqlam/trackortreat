@@ -8,7 +8,6 @@ import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 
 import BaseRouter from './routes/api';
-// import EnvVars from 'src/configurations/EnvVars';
 
 import { NodeEnvs } from 'src/declarations/enums';
 
@@ -47,18 +46,6 @@ app.get('/api', (req: Request, res: Response) => {
   res.send('Welcome to the API!');
   // getCandies();
 });
-// Show routes called in console during development
-// if (EnvVars.nodeEnv === NodeEnvs.Dev) {
-//   console.log("Running on Dev")
-//   app.use(morgan('dev'));
-// }
-
-// // Security
-// if (EnvVars.nodeEnv === NodeEnvs.Production) {
-//   console.log("Running on Prod")
-//   app.use(helmet());
-// }
-// **** Add API routes **** //
 
 export default app;
 

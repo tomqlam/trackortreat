@@ -1,4 +1,4 @@
 **/node_modules
 **/**/*.log
 # remove all files ending with .env
-**/*.env
+# **/*.env
