@@ -1,18 +1,20 @@
+import { ICandy } from '@models/Candy';
 import candyService from '@services/candy-service';
 import StatusCodes from 'http-status-codes';
+
 // **** Variables **** //
 
 // Misc
 const { CREATED, OK } = StatusCodes;
 
 // Paths
-const paths = {
-  basePath: '/candy',
-} as const;
+const path:string = '/candy' as const;
+// async arrow function that returns promise of string
 
-const getCandies = async () => {
+const getCandies = async (): Promise<ICandy[] | undefined> => {
   try {
     const candies = await candyService.getCandies();
+    return candies;
   } catch (e) {
     console.log(JSON.stringify(e));
   }
@@ -22,6 +24,6 @@ const getCandies = async () => {
 // **** Export default **** //
 
 export default {
-  paths,
+  path,
   getCandies,
 } as const;
