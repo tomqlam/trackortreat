@@ -75,21 +75,9 @@ const staticDir = path.join(__dirname, 'public');
 app.use(express.static(staticDir));
 
 // Nav to login pg by default
-app.get('/', (_: Request, res: Response) => {
-  res.sendFile('login.html', {root: viewsDir});
-});
+// app.get('/', (_: Request, res: Response) => {
+//   res.sendFile('users.html', {root: viewsDir});
+// });
 
-// Redirect to login if not logged in.
-app.get('/users', (req: Request, res: Response) => {
-  const jwt = req.signedCookies[EnvVars.cookieProps.key];
-  if (!jwt) {
-    res.redirect('/');
-  } else {
-    res.sendFile('users.html', {root: viewsDir});
-  }
-});
-
-
-// **** Export default **** //
 
 export default app;
