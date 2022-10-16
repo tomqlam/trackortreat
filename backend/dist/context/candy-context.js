@@ -13,14 +13,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const { Pool, Client } = require('pg');
 const client = new Client(process.env.DATABASE_URL);
 client.connect();
-// dummy function that returns 10 after a 1 second timeout
-const getDummyCandies = () => __awaiter(void 0, void 0, void 0, function* () {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve([]);
-        }, 1000);
-    });
-});
 const getCandies = () => __awaiter(void 0, void 0, void 0, function* () {
     // connect using postgresql
     const res = yield client.query('SELECT * FROM candies');

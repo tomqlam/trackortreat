@@ -26,6 +26,10 @@ houseRouter.post('/filter', async (req: Request, res: Response) => {
   res.send(await houseRoutes.getFilteredHouses(req.body));
 });
 
+houseRouter.post('/optimal', async (req: Request, res: Response) => {
+  res.send(await houseRoutes.getOptimalPath(req.body));
+});
+
 houseRouter.get('/', async (req: Request, res: Response) => {
   res.send(await houseRoutes.getHouses());
 });

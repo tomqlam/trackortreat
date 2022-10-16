@@ -29,8 +29,39 @@ const getHouses = () => __awaiter(void 0, void 0, void 0, function* () {
         console.log(JSON.stringify(e));
     }
 });
+const getFilteredHouses = (filter) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const houses = yield house_service_1.default.getFilteredHouses(filter);
+        return houses;
+    }
+    catch (e) {
+        console.log(JSON.stringify(e));
+    }
+});
+const getOptimalPath = (filter) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const houses = yield house_service_1.default.getOptimalPath(filter);
+        return houses;
+    }
+    catch (e) {
+        console.log(JSON.stringify(e));
+    }
+});
+const createHouse = (house) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield house_service_1.default.createHouse(house);
+        return result;
+    }
+    catch (e) {
+        console.log(JSON.stringify(e));
+        return false;
+    }
+});
 // **** Export default **** //
 exports.default = {
     path,
     getHouses,
+    getFilteredHouses,
+    createHouse,
+    getOptimalPath,
 };

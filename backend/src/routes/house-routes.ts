@@ -31,6 +31,15 @@ const getFilteredHouses = async (filter: IFilter): Promise<IHouseWithId[] | unde
   }
 }
 
+const getOptimalPath = async (filter: IFilter): Promise<IHouseWithId[] | undefined> => {
+  try {
+    const houses = await houseService.getOptimalPath(filter);
+    return houses;
+  } catch (e) {
+    console.log(JSON.stringify(e));
+  }
+}
+
 const createHouse = async (house: IHouse): Promise<boolean> => {
   try {
     const result = await houseService.createHouse(house);
@@ -48,4 +57,5 @@ export default {
   getHouses,
   getFilteredHouses,
   createHouse,
+  getOptimalPath,
 } as const;

@@ -29,6 +29,19 @@ candyRouter.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* (
 houseRouter.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.send(yield house_routes_1.default.getHouses());
 }));
+houseRouter.post('/filter', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.send(yield house_routes_1.default.getFilteredHouses(req.body));
+}));
+houseRouter.post('/optimal', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.send(yield house_routes_1.default.getOptimalPath(req.body));
+}));
+houseRouter.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.send(yield house_routes_1.default.getHouses());
+}));
+houseRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    //sanitize request
+    res.send((yield house_routes_1.default.createHouse(req.body)) ? 'Adding House was Successful!' : 'Failed to Add House');
+}));
 apiRouter.use('/candy', candyRouter);
 apiRouter.use('/house', houseRouter);
 // async express router use
