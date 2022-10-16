@@ -1,5 +1,6 @@
 import { ICandy } from '@models/Candy';
-import { IHouseWithId } from '@models/House';
+import { IFilter } from '@models/Filter';
+import { IHouse, IHouseWithId } from '@models/House';
 import houseService from '@services/house-service';
 import StatusCodes from 'http-status-codes';
 
@@ -21,10 +22,30 @@ const getHouses = async (): Promise<IHouseWithId[] | undefined> => {
   }
 }
 
+const getFilteredHouses = async (filter: IFilter): Promise<IHouseWithId[] | undefined> => {
+  try {
+    const houses = await houseService.getFilteredHouses(filter);
+    return houses;
+  } catch (e) {
+    console.log(JSON.stringify(e));
+  }
+}
+
+const createHouse = async (house: IHouse): Promise<boolean> => {
+  try {
+    const result = await houseService.createHouse(house);
+    return result;
+  } catch (e) {
+    console.log(JSON.stringify(e));
+    return false;
+  }
+}
 
 // **** Export default **** //
 
 export default {
   path,
   getHouses,
+  getFilteredHouses,
+  createHouse,
 } as const;

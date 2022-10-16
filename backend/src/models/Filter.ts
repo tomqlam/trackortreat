@@ -1,8 +1,8 @@
-export interface IHouse {
-  "houseaddress": string;
-  "latitude": number;
-  "longitude": number;
-  "candyflags": {
+export interface IFilter {
+  "userlatitude": number;
+  "userlongitude": number;
+  "radius": number;
+  "candyprefs": {
     "805460660796686337": boolean;
     "805460660818509825": boolean;
     "805460660873756673": boolean;
@@ -19,11 +19,4 @@ export interface IHouse {
     "805460661369208833": boolean;
     "805460661380513793": boolean;
   }
-  "hascandy": boolean;
-  "haslargecandy": boolean;
-  "openbowl":boolean;
-}
-
-export interface IHouseWithId extends IHouse {
-  "houseid": number;
 }

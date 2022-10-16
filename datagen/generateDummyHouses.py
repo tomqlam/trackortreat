@@ -6,15 +6,15 @@ import requests
 f = open('defaulthouse.json')
 data = json.load(f)
 
-min_lat = 37.522123
-max_lat = 37.557886
+min_lat = 37.541783
+max_lat = 37.552757
 
-# 37.557886, -121.945596
-# 37.522123, -121.984045
+# 37.552757, -121.955023
+# 37.541783, -121.941635
 
-min_lon = -121.984045
-max_lon = -121.945596
-out = open('queries.txt', 'w')
+min_lon = -121.955023
+max_lon = -121.941635
+out = open('queries2.txt', 'w')
 print(os.environ['MAPS_API_KEY'])
 visited = {}
 for i in range(500):
