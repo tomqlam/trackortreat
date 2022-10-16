@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { useState, useEffect } from "react";
-import MapView from 'react-native-maps';
+import MapView, { addressForCoordinate} from 'react-native-maps';
 import { Marker } from "react-native-maps";
 import { NativeBaseProvider, Text, Box, Button, Center, Input } from "native-base";
 import * as Location from 'expo-location';
@@ -39,6 +39,7 @@ const Map = ({candyTypes}) => {
           longitude: -122.43040118689831,
           hascandy: true,
           openbowl: true,
+          haslargecandy: true,
           candyflags: {
             "KitKat" : true,
             "Snickers" : true,
@@ -77,8 +78,6 @@ const Map = ({candyTypes}) => {
           // })
         })();
       }, [location]);
-      
-
     
       let text = 'Waiting..';
       if (errorMsg) {
@@ -92,7 +91,6 @@ const Map = ({candyTypes}) => {
         let oldData = houses;
         oldData.push(houseData);
         setHouses(oldData);
-        console.log(houses);
       }
       const onPressMap = (e) => {
         setPinLocation(e.nativeEvent.coordinate)
@@ -103,7 +101,6 @@ const Map = ({candyTypes}) => {
 
         setShowDetails(!showDetails);
         setHouseDetails(house);
-        console.log(houseDetails);
 
       }
   return (
@@ -112,13 +109,18 @@ const Map = ({candyTypes}) => {
         <View style={styles.mapContainer}>
     <MapView
       style={styles.map}
-      region={position}
+      initialRegion={position}
       onPress={onPressMap}
       liteMode={true}
+      userInterfaceStyle={"dark"}
+      loadingEnabled={true}
+      loadingBackgroundColor={"black"}
+      tintColor="orange"
+      showsMyLocationButton
     >
       {pinLocation &&
       <CustomMarker
-      key={1}
+      // key={1}
       latitude={pinLocation.latitude}
       longitude={pinLocation.longitude}
       icon={"down"}
@@ -133,7 +135,7 @@ const Map = ({candyTypes}) => {
     latitude={house.latitude}
     longitude={house.longitude}
     onPress={() => onPressMarker(house)}
-    icon="candy"
+    icon={house.hascandy ? "candy" : "none"}
     />
     )}
 

@@ -13,7 +13,6 @@ const Preferences = ({showSettings, setShowSettings, candyTypes}) => {
       let dummy = groupValues;
       dummy[index] = !dummy[index]
       setGroupValues(dummy);
-      console.log(dummy);
 
   }
   return (

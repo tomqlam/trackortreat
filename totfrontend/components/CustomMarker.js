@@ -6,10 +6,9 @@ import { Marker } from "react-native-maps";
 import { NativeBaseProvider, Text, Box, Button, Center, Input } from "native-base";
 import * as Location from 'expo-location';
 
-const CustomMarker = ({ onPress, key, latitude, longitude, icon}) => {
+const CustomMarker = ({ onPress, latitude, longitude, icon}) => {
   return (
         <Marker
-      key={key}
       coordinate={{ latitude : latitude , longitude : longitude }}
       onPress={onPress}
     >

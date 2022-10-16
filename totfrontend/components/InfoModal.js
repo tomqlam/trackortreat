@@ -31,13 +31,25 @@ const InfoModal = ({houseDetails, showModal, onClose}) => {
           <Modal.CloseButton />
           <Modal.Header>Whatchu got?</Modal.Header>
           <Modal.Body>
-            
-            <Text>Candy: </Text>
+          {!houseDetails.hascandy ? 
+            <Text>There's no candy!</Text>
+        :
+        <>
+        <Text>Candy: </Text>
             {
                 candies.map((candy, index) => <Text key={index}>{candy}</Text>)
                 
 
             }
+            
+            {houseDetails.openbowl && 
+            <Text>There's an open bowl!</Text>}
+            {houseDetails.haslargecandy &&
+            <Text>There's BIG candy!</Text>}
+        </>
+        
+        }
+            
             
           </Modal.Body>
           <Modal.Footer>

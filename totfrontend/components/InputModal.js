@@ -7,11 +7,17 @@ const InputModal = ({candyTypes, pinLocation, updateHouses}) => {
     const [showModal, setShowModal] = useState(false);
     const [bowl, setBowl] = React.useState("door");
     const [groupValues, setGroupValues] = useState(candyTypes.map((candy) => false));
+    const [bigCandy, setBigCandy] = useState(false);
+    const resetFields = () => {
+      setBowl("door");
+      setGroupValues([false, false, false]);
+      setBigCandy(false);
+
+    }
     const checkedItem =(index) => {
         let dummy = groupValues;
         dummy[index] = !dummy[index]
         setGroupValues(dummy);
-        console.log(dummy);
 
     }
 
@@ -21,20 +27,27 @@ const InputModal = ({candyTypes, pinLocation, updateHouses}) => {
         longitude: pinLocation.longitude,
         candyflags: {},
         openbowl: bowl == "bowl",
-        hascandy: !(bowl == "none"),
-
+        hascandy: true,
+        haslargecandy: bigCandy,
 
 
       }
       for (var i = 0; i < groupValues.length; i++){
         data.candyflags[candyTypes[i]] = groupValues[i];
       }
+      if (bowl == "none"){
+        data.hascandy = false;
+      }
       return data;
 
       
     }
     return <Center>
-        <Button mt={3}onPress={() => setShowModal(true)}>Drop pin here!</Button>
+        <Button mt={3}onPress={() => {
+          resetFields();
+          setShowModal(true);
+        }
+        }>Drop pin here!</Button>
         <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
           <Modal.Content maxWidth="400px">
             <Modal.CloseButton />
@@ -43,7 +56,7 @@ const InputModal = ({candyTypes, pinLocation, updateHouses}) => {
             <Text mb={1}>Distribution type</Text>
             <Radio.Group name="myRadioGroup" accessibilityLabel="favorite number" value={bowl} onChange={nextValue => {
     setBowl(nextValue);
-  }}><Radio value="None" my={1}>
+  }}><Radio value="none" my={1}>
   No candy
 </Radio>
       <Radio value="bowl" my={1}>
@@ -56,10 +69,11 @@ const InputModal = ({candyTypes, pinLocation, updateHouses}) => {
             
             <Text my={1}>Candy offered here</Text>
               {candyTypes.map((candy, index) => 
-                    <Checkbox isDisabled={bowl=="None"} my={1} key={String(index)} onPress={() => checkedItem(index)}>{candy}</Checkbox>
+                    <Checkbox isDisabled={bowl=="none"} my={1} key={String(index)} onPress={() => checkedItem(index)}>{candy}</Checkbox>
                 )} 
               
-    
+              <Text my={1}>BIG candy?</Text>
+              <Checkbox value="test" accessibilityLabel="This is a dummy checkbox" onPress={() => setBigCandy(!bigCandy)}>Yes!</Checkbox>
             </Modal.Body>
             <Modal.Footer>
               <Button.Group space={2}>
@@ -70,7 +84,6 @@ const InputModal = ({candyTypes, pinLocation, updateHouses}) => {
                 </Button>
                 <Button onPress={() => {
   
-                console.log(groupValues);
                 updateHouses(prepareHouseData());
                 setShowModal(false);
               }}>
