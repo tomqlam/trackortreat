@@ -1,3 +1,4 @@
+// @ts-ignore
 import candyRoutes from './candy-routes';
 import houseRoutes from './house-routes';
 import express, { Router, Request, Response, NextFunction } from 'express';
