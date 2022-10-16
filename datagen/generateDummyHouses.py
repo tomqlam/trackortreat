@@ -6,15 +6,18 @@ import requests
 f = open('defaulthouse.json')
 data = json.load(f)
 
-min_lat = 37.541175
-max_lat = 37.553069
+min_lat = 37.522123
+max_lat = 37.557886
 
-min_lon = -121.954793
-max_lon = -121.939463
+# 37.557886, -121.945596
+# 37.522123, -121.984045
+
+min_lon = -121.984045
+max_lon = -121.945596
 out = open('queries.txt', 'w')
 print(os.environ['MAPS_API_KEY'])
 visited = {}
-for i in range(50):
+for i in range(500):
   rand_lat = random.uniform(min_lat, max_lat)
   rand_lon = random.uniform(min_lon, max_lon)
   api_result = requests.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + str(rand_lat) + ',' + str(rand_lon) + '&key=' + os.environ['MAPS_API_KEY'])
@@ -26,6 +29,8 @@ for i in range(50):
   if(dummy_address['houseaddress'] in visited):
     continue
   visited[dummy_address['houseaddress']] = True
+  if("premise" not in api_response['results'][0]['types']):
+    continue
   dummy_address['longitude'] = api_response['results'][0]['geometry']['location']['lng']
   dummy_address['latitude'] = api_response['results'][0]['geometry']['location']['lat']
   for key in data['candyflags']:
