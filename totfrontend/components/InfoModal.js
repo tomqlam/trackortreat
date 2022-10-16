@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { useState, useEffect } from "react";
-import { Radio, Heading, Modal, FormControl, Input, Checkbox, NativeBaseProvider, Text, Box, Button, Center } from "native-base";
-
+import { Image, Radio, Heading, Modal, FormControl, Input, Checkbox, NativeBaseProvider, Text, Box, Button, Center } from "native-base";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const InfoModal = ({getCandyFromId, houseDetails, showModal, onClose}) => {
     const [candies, setCandies] = useState(["Test"]);
@@ -41,7 +41,6 @@ const InfoModal = ({getCandyFromId, houseDetails, showModal, onClose}) => {
                 
 
             }
-            
             {houseDetails.openbowl && 
             <Text>There's an open bowl!</Text>}
             {houseDetails.haslargecandy &&

@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { useState, useEffect } from "react";
 import { ScrollView, Radio, Heading, Modal, FormControl, Input, Checkbox, NativeBaseProvider, Text, Box, Button, Center } from "native-base";
 
-const InputModal = ({apiCandy, getIdFromCandy, candyTypes, pinLocation, updateHouses}) => {
+const InputModal = ({dropping, setDropping, apiCandy, getIdFromCandy, candyTypes, pinLocation, updateHouses}) => {
     const [showModal, setShowModal] = useState(false);
     const [bowl, setBowl] = React.useState("door");
     const [groupValues, setGroupValues] = useState(apiCandy.map((candy) => false));
@@ -11,6 +11,22 @@ const InputModal = ({apiCandy, getIdFromCandy, candyTypes, pinLocation, updateHo
 
     const [isLoading, setLoading] = useState(true);
     const [address, setAddress] = useState([]);
+
+
+
+
+    const postReq = (body) => {
+      console.log("posting");
+      console.log(body);
+      fetch('https://trackortreat-backend.herokuapp.com/api/house', {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(body)
+});
+    }
   
     const getAddress = async (latitude, longitude) => {
       url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + String(latitude) + ","+ String(longitude) + "&key=AIzaSyDOImd6yMNGtTUInoFCGfbBlXB4cVs0kos"
@@ -18,11 +34,14 @@ const InputModal = ({apiCandy, getIdFromCandy, candyTypes, pinLocation, updateHo
         const response = await fetch(url);
         const json = await response.json();
         setAddress(json.results[1].formatted_address);
+        return address;
       } catch (error) {
         console.error(error);
+        throw(error);
       } finally {
         setLoading(false);
         console.log(address);
+        return address;
       }
     }
   
@@ -68,13 +87,15 @@ const InputModal = ({apiCandy, getIdFromCandy, candyTypes, pinLocation, updateHo
     return <Center>
         <Button mt={3}
         size="lg"
-        variant="subtle"
         onPress={() => {
           resetFields();
           setShowModal(true);
+          getAddress(pinLocation.latitude, pinLocation.longitude);
         }
-        }>Drop pin here!</Button>
-        <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+        }>Tap anywhere to drop pin, and here to submit</Button>
+        <Modal isOpen={showModal} onClose={() => {
+          setShowModal(false)
+        }}>
           <Modal.Content maxWidth="400px">
             <Modal.CloseButton />
             <Modal.Header>About this house</Modal.Header>
@@ -114,9 +135,9 @@ const InputModal = ({apiCandy, getIdFromCandy, candyTypes, pinLocation, updateHo
                   Cancel
                 </Button>
                 <Button onPress={() => {
-  
-                updateHouses(prepareHouseData());
-                getAddress(pinLocation.latitude, pinLocation.longitude);
+                  postPath();
+                postReq(prepareHouseData());
+                setDropping(false);
                 setShowModal(false);
               }}>
                   Save

@@ -6,14 +6,36 @@ import { Marker } from "react-native-maps";
 import { NativeBaseProvider, Text, Box, Button, Center, Input } from "native-base";
 import * as Location from 'expo-location';
 
-const CustomMarker = ({ houseDetails, onPress, latitude, longitude, filterOn, filters}) => {
-    const shouldShow = () => {
+const CustomMarker = ({ apiCandy, getIdFromCandy, houseDetails, onPress, latitude, longitude, filterOn, filters}) => {
+  const [show, setShow] = useState(true);
+
+  const shouldShow = () => {
+      if (!apiCandy){
+        //probably another marker
+        console.log("Null candy api");
+        return true;
+      }
         if (filterOn){
             //check if this has the right candies
+            for (var i = 0; i < filters.length; i++){
+              if (filters[i] && houseDetails.candyflags[apiCandy[i].candyid]){
+                console.log("Found a match");
+                return true;
+              }
+            }
+            return false;
+
         } 
         //else filter off
         return true;
     }
+
+    useEffect(() => {
+      setShow(shouldShow);
+    }, [filterOn, filters, apiCandy]
+  
+    )  
+
     const decideIcon = (houseDetails) => {
         if (!houseDetails){
             return "down"
@@ -45,15 +67,20 @@ const CustomMarker = ({ houseDetails, onPress, latitude, longitude, filterOn, fi
     }
     var url = getURL();
   return (
-        <Marker
+    <>
+    {show && <Marker
 
-      coordinate={{ latitude : latitude , longitude : longitude }}
-      onPress={onPress}
-    >
-      <Image source={url} style={{height: 35, width:35 }} />
-     
-      
-    </Marker>
+coordinate={{ latitude : latitude , longitude : longitude }}
+onPress={onPress}
+>
+<Image source={url} style={{height: 35, width:35 }} />
+
+
+</Marker>}
+    </>
+    
+  
+        
   )
 }
 

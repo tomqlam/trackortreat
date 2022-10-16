@@ -68,7 +68,6 @@ const getApiCandy = () => {
       console.error(error);
     } finally {
       setLoading(false);
-      console.log(apiHouses.length);
 
     }
   }
