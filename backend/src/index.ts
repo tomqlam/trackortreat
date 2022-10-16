@@ -1,5 +1,4 @@
 import './pre-start'; // Must be the first import
-import candyService from '@services/candy-service';
 import morgan from 'morgan';
 import cors from "cors";
 import helmet from 'helmet';
@@ -9,30 +8,10 @@ import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 
 import BaseRouter from './routes/api';
-import logger from 'jet-logger';
-import EnvVars from 'src/configurations/EnvVars';
-import { CustomError } from 'src/declarations/errors';
+// import EnvVars from 'src/configurations/EnvVars';
 
 import { NodeEnvs } from 'src/declarations/enums';
 
-import pg from 'pg';
-import { ICandy } from '@models/Candy';
-
-// **** Functions **** //
-
-
-// const { Pool, Client } = require('pg');
-
-// const client = new Client(process.env.DATABASE_URL);
-// // async arrow function
-
-// const getCandies = async (): Promise<ICandy[]> => {
-//   // connect using postgresql
-//   await client.connect();
-//   const res = await client.query('SELECT * FROM candies');
-//   console.log(res.rows);
-//   return res;
-// }
 
 if (!process.env.PORT) {
   process.exit(1);
@@ -69,16 +48,16 @@ app.get('/api', (req: Request, res: Response) => {
   // getCandies();
 });
 // Show routes called in console during development
-if (EnvVars.nodeEnv === NodeEnvs.Dev) {
-  console.log("Running on Dev")
-  app.use(morgan('dev'));
-}
+// if (EnvVars.nodeEnv === NodeEnvs.Dev) {
+//   console.log("Running on Dev")
+//   app.use(morgan('dev'));
+// }
 
-// Security
-if (EnvVars.nodeEnv === NodeEnvs.Production) {
-  console.log("Running on Prod")
-  app.use(helmet());
-}
+// // Security
+// if (EnvVars.nodeEnv === NodeEnvs.Production) {
+//   console.log("Running on Prod")
+//   app.use(helmet());
+// }
 // **** Add API routes **** //
 
 export default app;

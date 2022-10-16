@@ -4,25 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./pre-start"); // Must be the first import
-const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const helmet_1 = __importDefault(require("helmet"));
 const express_1 = __importDefault(require("express"));
 require("express-async-errors");
 const api_1 = __importDefault(require("./routes/api"));
-const EnvVars_1 = __importDefault(require("src/configurations/EnvVars"));
-const enums_1 = require("src/declarations/enums");
-// **** Functions **** //
-// const { Pool, Client } = require('pg');
-// const client = new Client(process.env.DATABASE_URL);
-// // async arrow function
-// const getCandies = async (): Promise<ICandy[]> => {
-//   // connect using postgresql
-//   await client.connect();
-//   const res = await client.query('SELECT * FROM candies');
-//   console.log(res.rows);
-//   return res;
-// }
 if (!process.env.PORT) {
     process.exit(1);
 }
@@ -47,14 +33,14 @@ app.get('/api', (req, res) => {
     // getCandies();
 });
 // Show routes called in console during development
-if (EnvVars_1.default.nodeEnv === enums_1.NodeEnvs.Dev) {
-    console.log("Running on Dev");
-    app.use((0, morgan_1.default)('dev'));
-}
-// Security
-if (EnvVars_1.default.nodeEnv === enums_1.NodeEnvs.Production) {
-    console.log("Running on Prod");
-    app.use((0, helmet_1.default)());
-}
+// if (EnvVars.nodeEnv === NodeEnvs.Dev) {
+//   console.log("Running on Dev")
+//   app.use(morgan('dev'));
+// }
+// // Security
+// if (EnvVars.nodeEnv === NodeEnvs.Production) {
+//   console.log("Running on Prod")
+//   app.use(helmet());
+// }
 // **** Add API routes **** //
 exports.default = app;

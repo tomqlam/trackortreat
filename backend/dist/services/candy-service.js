@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const candy_context_1 = __importDefault(require("src/context/candy-context"));
+const candy_context_1 = __importDefault(require("@context/candy-context"));
 const getCandies = () => __awaiter(void 0, void 0, void 0, function* () {
     return candy_context_1.default.getCandies();
 });

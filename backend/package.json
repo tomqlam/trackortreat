@@ -4,7 +4,8 @@
   "scripts": {
     "lint": "npx eslint --ext .ts src/",
     "lint:tests": "npx eslint --ext .ts spec/",
-    "start": "node -r module-alias/register ./dist --env=production",
+    "start": "node -r module-alias/register ./dist",
+    "build": "npx tsc",
     "dev": "nodemon",
     "test": "nodemon --config ./spec/nodemon.json",
     "test:no-reloading": "npx ts-node --files -r tsconfig-paths/register ./spec"
@@ -21,7 +22,7 @@
   },
   "_moduleAliases": {
     "@services": "dist/services",
-    "@repos": "dist/repos",
+    "@context": "dist/context",
     "@models": "dist/models",
     "@shared": "dist/shared",
     "@server": "dist/server",

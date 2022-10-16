@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const house_context_1 = __importDefault(require("src/context/house-context"));
+const house_context_1 = __importDefault(require("@context/house-context"));
 const getHouses = () => __awaiter(void 0, void 0, void 0, function* () {
     return house_context_1.default.getHouses();
 });
