@@ -1,0 +1,385 @@
+{"address_components": [
+    {"long_name": "40489", "short_name": "40489", "types": ["street_number"
+      ]
+    },
+    {"long_name": "Seville Court", "short_name": "Seville Ct", "types": ["route"
+      ]
+    },
+    {"long_name": "Kimber - Gomes", "short_name": "Kimber - Gomes", "types": ["neighborhood", "political"
+      ]
+    },
+    {"long_name": "Fremont", "short_name": "Fremont", "types": ["locality", "political"
+      ]
+    },
+    {"long_name": "Alameda County", "short_name": "Alameda County", "types": ["administrative_area_level_2", "political"
+      ]
+    },
+    {"long_name": "California", "short_name": "CA", "types": ["administrative_area_level_1", "political"
+      ]
+    },
+    {"long_name": "United States", "short_name": "US", "types": ["country", "political"
+      ]
+    },
+    {"long_name": "94539", "short_name": "94539", "types": ["postal_code"
+      ]
+    },
+    {"long_name": "3620", "short_name": "3620", "types": ["postal_code_suffix"
+      ]
+    }
+  ], "formatted_address": "40489 Seville Ct, Fremont, CA 94539, USA", "geometry": {"bounds": {"northeast": {"lat": 37.5512082, "lng": -121.9544403
+      }, "southwest": {"lat": 37.5510516, "lng": -121.9546255
+      }
+    }, "location": {"lat": 37.5511394, "lng": -121.9545545
+    }, "location_type": "ROOFTOP", "viewport": {"northeast": {"lat": 37.5524788802915, "lng": -121.9531839197085
+      }, "southwest": {"lat": 37.5497809197085, "lng": -121.9558818802915
+      }
+    }
+  }, "place_id": "ChIJg7WxaefAj4ARzHfFICLY9b0", "types": ["premise"
+  ]
+}
+{"address_components": [
+    {"long_name": "460", "short_name": "460", "types": ["street_number"
+      ]
+    },
+    {"long_name": "Jacaranda Drive", "short_name": "Jacaranda Dr", "types": ["route"
+      ]
+    },
+    {"long_name": "Kimber - Gomes", "short_name": "Kimber - Gomes", "types": ["neighborhood", "political"
+      ]
+    },
+    {"long_name": "Fremont", "short_name": "Fremont", "types": ["locality", "political"
+      ]
+    },
+    {"long_name": "Alameda County", "short_name": "Alameda County", "types": ["administrative_area_level_2", "political"
+      ]
+    },
+    {"long_name": "California", "short_name": "CA", "types": ["administrative_area_level_1", "political"
+      ]
+    },
+    {"long_name": "United States", "short_name": "US", "types": ["country", "political"
+      ]
+    },
+    {"long_name": "94539", "short_name": "94539", "types": ["postal_code"
+      ]
+    },
+    {"long_name": "3896", "short_name": "3896", "types": ["postal_code_suffix"
+      ]
+    }
+  ], "formatted_address": "460 Jacaranda Dr, Fremont, CA 94539, USA", "geometry": {"bounds": {"northeast": {"lat": 37.5488767, "lng": -121.9438489
+      }, "southwest": {"lat": 37.5486745, "lng": -121.9440463
+      }
+    }, "location": {"lat": 37.5487701, "lng": -121.9439558
+    }, "location_type": "ROOFTOP", "viewport": {"northeast": {"lat": 37.5501245802915, "lng": -121.9425986197085
+      }, "southwest": {"lat": 37.5474266197085, "lng": -121.9452965802915
+      }
+    }
+  }, "place_id": "ChIJ91nWLCHBj4AR_lE-ZjihLHY", "types": ["premise"
+  ]
+}
+{"address_components": [
+    {"long_name": "1498", "short_name": "1498", "types": ["street_number"
+      ]
+    },
+    {"long_name": "Gomes Road", "short_name": "Gomes Rd", "types": ["route"
+      ]
+    },
+    {"long_name": "Kimber - Gomes", "short_name": "Kimber - Gomes", "types": ["neighborhood", "political"
+      ]
+    },
+    {"long_name": "Fremont", "short_name": "Fremont", "types": ["locality", "political"
+      ]
+    },
+    {"long_name": "Alameda County", "short_name": "Alameda County", "types": ["administrative_area_level_2", "political"
+      ]
+    },
+    {"long_name": "California", "short_name": "CA", "types": ["administrative_area_level_1", "political"
+      ]
+    },
+    {"long_name": "United States", "short_name": "US", "types": ["country", "political"
+      ]
+    },
+    {"long_name": "94539", "short_name": "94539", "types": ["postal_code"
+      ]
+    },
+    {"long_name": "4444", "short_name": "4444", "types": ["postal_code_suffix"
+      ]
+    }
+  ], "formatted_address": "1498 Gomes Rd, Fremont, CA 94539, USA", "geometry": {"bounds": {"northeast": {"lat": 37.5433543, "lng": -121.9479774
+      }, "southwest": {"lat": 37.5431633, "lng": -121.9482511
+      }
+    }, "location": {"lat": 37.5432405, "lng": -121.9481332
+    }, "location_type": "ROOFTOP", "viewport": {"northeast": {"lat": 37.5446077802915, "lng": -121.9467652697085
+      }, "southwest": {"lat": 37.5419098197085, "lng": -121.9494632302915
+      }
+    }
+  }, "place_id": "ChIJC3i-GtjAj4ARs_x2E3GS8z4", "types": ["premise"
+  ]
+}
+{"address_components": [
+    {"long_name": "1196", "short_name": "1196", "types": ["street_number"
+      ]
+    },
+    {"long_name": "Casa Marcia Place", "short_name": "Casa Marcia Pl", "types": ["route"
+      ]
+    },
+    {"long_name": "Kimber - Gomes", "short_name": "Kimber - Gomes", "types": ["neighborhood", "political"
+      ]
+    },
+    {"long_name": "Fremont", "short_name": "Fremont", "types": ["locality", "political"
+      ]
+    },
+    {"long_name": "Alameda County", "short_name": "Alameda County", "types": ["administrative_area_level_2", "political"
+      ]
+    },
+    {"long_name": "California", "short_name": "CA", "types": ["administrative_area_level_1", "political"
+      ]
+    },
+    {"long_name": "United States", "short_name": "US", "types": ["country", "political"
+      ]
+    },
+    {"long_name": "94539", "short_name": "94539", "types": ["postal_code"
+      ]
+    },
+    {"long_name": "3681", "short_name": "3681", "types": ["postal_code_suffix"
+      ]
+    }
+  ], "formatted_address": "1196 Casa Marcia Pl, Fremont, CA 94539, USA", "geometry": {"bounds": {"northeast": {"lat": 37.54777199999999, "lng": -121.9520199
+      }, "southwest": {"lat": 37.5475777, "lng": -121.9522245
+      }
+    }, "location": {"lat": 37.5476549, "lng": -121.9521326
+    }, "location_type": "ROOFTOP", "viewport": {"northeast": {"lat": 37.5490238302915, "lng": -121.9507732197085
+      }, "southwest": {"lat": 37.5463258697085, "lng": -121.9534711802915
+      }
+    }
+  }, "place_id": "ChIJwTcCl97Aj4ARGCnoAEqJGdA", "types": ["premise"
+  ]
+}
+{"address_components": [
+    {"long_name": "993", "short_name": "993", "types": ["street_number"
+      ]
+    },
+    {"long_name": "Bermuda Court", "short_name": "Bermuda Ct", "types": ["route"
+      ]
+    },
+    {"long_name": "Kimber - Gomes", "short_name": "Kimber - Gomes", "types": ["neighborhood", "political"
+      ]
+    },
+    {"long_name": "Fremont", "short_name": "Fremont", "types": ["locality", "political"
+      ]
+    },
+    {"long_name": "Alameda County", "short_name": "Alameda County", "types": ["administrative_area_level_2", "political"
+      ]
+    },
+    {"long_name": "California", "short_name": "CA", "types": ["administrative_area_level_1", "political"
+      ]
+    },
+    {"long_name": "United States", "short_name": "US", "types": ["country", "political"
+      ]
+    },
+    {"long_name": "94539", "short_name": "94539", "types": ["postal_code"
+      ]
+    },
+    {"long_name": "3702", "short_name": "3702", "types": ["postal_code_suffix"
+      ]
+    }
+  ], "formatted_address": "993 Bermuda Ct, Fremont, CA 94539, USA", "geometry": {"bounds": {"northeast": {"lat": 37.5465578, "lng": -121.9459508
+      }, "southwest": {"lat": 37.54636199999999, "lng": -121.9462369
+      }
+    }, "location": {"lat": 37.5464415, "lng": -121.9460889
+    }, "location_type": "ROOFTOP", "viewport": {"northeast": {"lat": 37.54780888029149, "lng": -121.9447448697085
+      }, "southwest": {"lat": 37.54511091970849, "lng": -121.9474428302915
+      }
+    }
+  }, "place_id": "ChIJKUpTbCfBj4AR7HXcey_-iX0", "types": ["premise"
+  ]
+}
+{"address_components": [
+    {"long_name": "41539", "short_name": "41539", "types": ["street_number"
+      ]
+    },
+    {"long_name": "Chadbourne Drive", "short_name": "Chadbourne Dr", "types": ["route"
+      ]
+    },
+    {"long_name": "Mission Valley", "short_name": "Mission Valley", "types": ["neighborhood", "political"
+      ]
+    },
+    {"long_name": "Fremont", "short_name": "Fremont", "types": ["locality", "political"
+      ]
+    },
+    {"long_name": "Alameda County", "short_name": "Alameda County", "types": ["administrative_area_level_2", "political"
+      ]
+    },
+    {"long_name": "California", "short_name": "CA", "types": ["administrative_area_level_1", "political"
+      ]
+    },
+    {"long_name": "United States", "short_name": "US", "types": ["country", "political"
+      ]
+    },
+    {"long_name": "94539", "short_name": "94539", "types": ["postal_code"
+      ]
+    },
+    {"long_name": "4658", "short_name": "4658", "types": ["postal_code_suffix"
+      ]
+    }
+  ], "formatted_address": "41539 Chadbourne Dr, Fremont, CA 94539, USA", "geometry": {"bounds": {"northeast": {"lat": 37.5412626, "lng": -121.9437955
+      }, "southwest": {"lat": 37.5410674, "lng": -121.9440262
+      }
+    }, "location": {"lat": 37.5411659, "lng": -121.9438891
+    }, "location_type": "ROOFTOP", "viewport": {"northeast": {"lat": 37.5425139802915, "lng": -121.9425618697085
+      }, "southwest": {"lat": 37.5398160197085, "lng": -121.9452598302915
+      }
+    }
+  }, "place_id": "ChIJaRZeBCnBj4ARO-BPZxVd7_0", "types": ["premise"
+  ]
+}
+{"address_components": [
+    {"long_name": "827", "short_name": "827", "types": ["street_number"
+      ]
+    },
+    {"long_name": "Lemos Lane", "short_name": "Lemos Ln", "types": ["route"
+      ]
+    },
+    {"long_name": "Kimber - Gomes", "short_name": "Kimber - Gomes", "types": ["neighborhood", "political"
+      ]
+    },
+    {"long_name": "Fremont", "short_name": "Fremont", "types": ["locality", "political"
+      ]
+    },
+    {"long_name": "Alameda County", "short_name": "Alameda County", "types": ["administrative_area_level_2", "political"
+      ]
+    },
+    {"long_name": "California", "short_name": "CA", "types": ["administrative_area_level_1", "political"
+      ]
+    },
+    {"long_name": "United States", "short_name": "US", "types": ["country", "political"
+      ]
+    },
+    {"long_name": "94539", "short_name": "94539", "types": ["postal_code"
+      ]
+    }
+  ], "formatted_address": "827 Lemos Ln, Fremont, CA 94539, USA", "geometry": {"location": {"lat": 37.549686, "lng": -121.950778
+    }, "location_type": "ROOFTOP", "viewport": {"northeast": {"lat": 37.5510349802915, "lng": -121.9494290197085
+      }, "southwest": {"lat": 37.54833701970851, "lng": -121.9521269802915
+      }
+    }
+  }, "place_id": "ChIJi4gfUN7Aj4ARIOLMwEWcKmA", "plus_code": {"compound_code": "G2XX+VM Fremont, CA, USA", "global_code": "849WG2XX+VM"
+  }, "types": ["street_address"
+  ]
+}
+{"address_components": [
+    {"long_name": "40977", "short_name": "40977", "types": ["street_number"
+      ]
+    },
+    {"long_name": "Pajaro Drive", "short_name": "Pajaro Dr", "types": ["route"
+      ]
+    },
+    {"long_name": "Kimber - Gomes", "short_name": "Kimber - Gomes", "types": ["neighborhood", "political"
+      ]
+    },
+    {"long_name": "Fremont", "short_name": "Fremont", "types": ["locality", "political"
+      ]
+    },
+    {"long_name": "Alameda County", "short_name": "Alameda County", "types": ["administrative_area_level_2", "political"
+      ]
+    },
+    {"long_name": "California", "short_name": "CA", "types": ["administrative_area_level_1", "political"
+      ]
+    },
+    {"long_name": "United States", "short_name": "US", "types": ["country", "political"
+      ]
+    },
+    {"long_name": "94539", "short_name": "94539", "types": ["postal_code"
+      ]
+    },
+    {"long_name": "4432", "short_name": "4432", "types": ["postal_code_suffix"
+      ]
+    }
+  ], "formatted_address": "40977 Pajaro Dr, Fremont, CA 94539, USA", "geometry": {"bounds": {"northeast": {"lat": 37.5428178, "lng": -121.9504295
+      }, "southwest": {"lat": 37.5426493, "lng": -121.9507067
+      }
+    }, "location": {"lat": 37.5427288, "lng": -121.9505773
+    }, "location_type": "ROOFTOP", "viewport": {"northeast": {"lat": 37.5440825302915, "lng": -121.9492191197085
+      }, "southwest": {"lat": 37.5413845697085, "lng": -121.9519170802915
+      }
+    }
+  }, "place_id": "ChIJEcOHztnAj4ARraVvHqxj3wA", "types": ["premise"
+  ]
+}
+{"address_components": [
+    {"long_name": "40695", "short_name": "40695", "types": ["street_number"
+      ]
+    },
+    {"long_name": "Ladero Street", "short_name": "Ladero St", "types": ["route"
+      ]
+    },
+    {"long_name": "Kimber - Gomes", "short_name": "Kimber - Gomes", "types": ["neighborhood", "political"
+      ]
+    },
+    {"long_name": "Fremont", "short_name": "Fremont", "types": ["locality", "political"
+      ]
+    },
+    {"long_name": "Alameda County", "short_name": "Alameda County", "types": ["administrative_area_level_2", "political"
+      ]
+    },
+    {"long_name": "California", "short_name": "CA", "types": ["administrative_area_level_1", "political"
+      ]
+    },
+    {"long_name": "United States", "short_name": "US", "types": ["country", "political"
+      ]
+    },
+    {"long_name": "94539", "short_name": "94539", "types": ["postal_code"
+      ]
+    },
+    {"long_name": "3640", "short_name": "3640", "types": ["postal_code_suffix"
+      ]
+    }
+  ], "formatted_address": "40695 Ladero St, Fremont, CA 94539, USA", "geometry": {"bounds": {"northeast": {"lat": 37.5457683, "lng": -121.9520451
+      }, "southwest": {"lat": 37.5455554, "lng": -121.9523259
+      }
+    }, "location": {"lat": 37.545656, "lng": -121.9521771
+    }, "location_type": "ROOFTOP", "viewport": {"northeast": {"lat": 37.5470108302915, "lng": -121.9508365197085
+      }, "southwest": {"lat": 37.5443128697085, "lng": -121.9535344802915
+      }
+    }
+  }, "place_id": "ChIJAwZhRdnAj4ARhHZibBv1Iqk", "types": ["premise"
+  ]
+}
+{"address_components": [
+    {"long_name": "1796", "short_name": "1796", "types": ["street_number"
+      ]
+    },
+    {"long_name": "Oro Drive", "short_name": "Oro Dr", "types": ["route"
+      ]
+    },
+    {"long_name": "Kimber - Gomes", "short_name": "Kimber - Gomes", "types": ["neighborhood", "political"
+      ]
+    },
+    {"long_name": "Fremont", "short_name": "Fremont", "types": ["locality", "political"
+      ]
+    },
+    {"long_name": "Alameda County", "short_name": "Alameda County", "types": ["administrative_area_level_2", "political"
+      ]
+    },
+    {"long_name": "California", "short_name": "CA", "types": ["administrative_area_level_1", "political"
+      ]
+    },
+    {"long_name": "United States", "short_name": "US", "types": ["country", "political"
+      ]
+    },
+    {"long_name": "94539", "short_name": "94539", "types": ["postal_code"
+      ]
+    },
+    {"long_name": "3687", "short_name": "3687", "types": ["postal_code_suffix"
+      ]
+    }
+  ], "formatted_address": "1796 Oro Dr, Fremont, CA 94539, USA", "geometry": {"bounds": {"northeast": {"lat": 37.5434273, "lng": -121.9510981
+      }, "southwest": {"lat": 37.5432615, "lng": -121.9513679
+      }
+    }, "location": {"lat": 37.5433522, "lng": -121.9512439
+    }, "location_type": "ROOFTOP", "viewport": {"northeast": {"lat": 37.5446933802915, "lng": -121.9498840197085
+      }, "southwest": {"lat": 37.5419954197085, "lng": -121.9525819802915
+      }
+    }
+  }, "place_id": "ChIJn_10vNnAj4ARUsACazOk5Ls", "types": ["premise"
+  ]
+}
