@@ -1,4 +1,4 @@
-import candyContext from 'src/context/candy-context';
+import candyContext from '@context/candy-context';
 import { ICandy } from '@models/Candy';
 
 

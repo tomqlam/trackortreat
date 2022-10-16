@@ -1,4 +1,4 @@
-import houseContext from 'src/context/house-context';
+import houseContext from '@context/house-context';
 import { IHouse, IHouseWithId } from '@models/House';
 
 
