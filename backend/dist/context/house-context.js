@@ -16,7 +16,6 @@ client.connect();
 const getHouses = () => __awaiter(void 0, void 0, void 0, function* () {
     // connect using postgresql
     const res = yield client.query('SELECT * FROM houses');
-    console.log(res.rows);
     return res.rows;
 });
 const getFilteredHouses = (filter) => __awaiter(void 0, void 0, void 0, function* () {
@@ -30,9 +29,7 @@ const getFilteredHouses = (filter) => __awaiter(void 0, void 0, void 0, function
                       + sin( radians(${filter.userlatitude}) )
                       * sin( radians( CAST(houses.latitude as FLOAT)) )
                     ) < ${filter.radius});`;
-    console.log(queryString);
     const res = yield client.query(queryString);
-    // console.log(res.rows);
     return res.rows;
 });
 const createHouse = (house) => __awaiter(void 0, void 0, void 0, function* () {

@@ -10,8 +10,6 @@ client.connect();
 const getCandies = async (): Promise<ICandy[]> => {
   // connect using postgresql
   const res = await client.query('SELECT * FROM candies');
-  // const res = await getDummyCandies();
-  console.log(res.rows);
   return res.rows;
 }
 

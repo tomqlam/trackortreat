@@ -16,8 +16,6 @@ client.connect();
 const getCandies = () => __awaiter(void 0, void 0, void 0, function* () {
     // connect using postgresql
     const res = yield client.query('SELECT * FROM candies');
-    // const res = await getDummyCandies();
-    console.log(res.rows);
     return res.rows;
 });
 // **** Export default **** //

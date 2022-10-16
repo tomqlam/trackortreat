@@ -10,7 +10,6 @@ client.connect();
 const getHouses = async (): Promise<IHouseWithId[]> => {
   // connect using postgresql
   const res = await client.query('SELECT * FROM houses');
-  console.log(res.rows);
   return res.rows;
 }
 
@@ -26,10 +25,8 @@ const getFilteredHouses = async (filter: IFilter): Promise<IHouseWithId[]> => {
                       + sin( radians(${filter.userlatitude}) )
                       * sin( radians( CAST(houses.latitude as FLOAT)) )
                     ) < ${filter.radius});`;
-  console.log(queryString);
 
   const res = await client.query(queryString);
-  // console.log(res.rows);
   return res.rows;
 }
 
