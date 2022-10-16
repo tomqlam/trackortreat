@@ -8,10 +8,30 @@ const InputModal = ({candyTypes, pinLocation, updateHouses}) => {
     const [bowl, setBowl] = React.useState("door");
     const [groupValues, setGroupValues] = useState(candyTypes.map((candy) => false));
     const [bigCandy, setBigCandy] = useState(false);
+
+    const [isLoading, setLoading] = useState(true);
+    const [address, setAddress] = useState([]);
+  
+    const getAddress = async (latitude, longitude) => {
+      url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + String(latitude) + ","+ String(longitude) + "&key=AIzaSyDOImd6yMNGtTUInoFCGfbBlXB4cVs0kos"
+       try {
+        const response = await fetch(url);
+        const json = await response.json();
+        setAddress(json.results[1].formatted_address);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+        console.log(address);
+      }
+    }
+  
+
     const resetFields = () => {
       setBowl("door");
       setGroupValues([false, false, false]);
       setBigCandy(false);
+      console.log("rest");
 
     }
     const checkedItem =(index) => {
@@ -29,6 +49,7 @@ const InputModal = ({candyTypes, pinLocation, updateHouses}) => {
         openbowl: bowl == "bowl",
         hascandy: true,
         haslargecandy: bigCandy,
+        houseaddress: address,
 
 
       }
@@ -43,7 +64,10 @@ const InputModal = ({candyTypes, pinLocation, updateHouses}) => {
       
     }
     return <Center>
-        <Button mt={3}onPress={() => {
+        <Button mt={3}
+        size="lg"
+        variant="subtle"
+        onPress={() => {
           resetFields();
           setShowModal(true);
         }
@@ -85,6 +109,7 @@ const InputModal = ({candyTypes, pinLocation, updateHouses}) => {
                 <Button onPress={() => {
   
                 updateHouses(prepareHouseData());
+                getAddress(pinLocation.latitude, pinLocation.longitude);
                 setShowModal(false);
               }}>
                   Save

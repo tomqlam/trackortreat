@@ -3,7 +3,7 @@ import { Image, StyleSheet, View } from "react-native";
 import { useState, useEffect } from "react";
 import MapView, { addressForCoordinate} from 'react-native-maps';
 import { Marker } from "react-native-maps";
-import { NativeBaseProvider, Text, Box, Button, Center, Input } from "native-base";
+import { HStack, Badge, NativeBaseProvider, Text, Box, Button, Center, Input } from "native-base";
 import * as Location from 'expo-location';
 import InputModal from './InputModal';
 import InfoModal from "./InfoModal";
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 
     },
     mapContainer : {
-        height: "80%",
+        height: "100%",
         width: "100%",
     },
     map: {
@@ -27,6 +27,8 @@ const styles = StyleSheet.create({
    });
 
 const Map = ({candyTypes}) => {
+    const [filters, setFilters] = useState(candyTypes.map((candy) => false));
+    const [filterOn, setFilterOn] = useState(false);
     const [position, setPosition] = useState({
         latitude: 37.78825,
          longitude: -122.4324,
@@ -40,6 +42,7 @@ const Map = ({candyTypes}) => {
           hascandy: true,
           openbowl: true,
           haslargecandy: true,
+          houseaddress: "1990 California St, San Francisco, CA 94109, USA",
           candyflags: {
             "KitKat" : true,
             "Snickers" : true,
@@ -47,11 +50,17 @@ const Map = ({candyTypes}) => {
           }
         },
       ]);
-      const [pinLocation, setPinLocation] = useState(position);
+      const [pinLocation, setPinLocation] = useState({
+        latitude: 37.78825,
+         longitude: -122.4324,
+         latitudeDelta: 0.015,
+         longitudeDelta: 0.0121,
+      });
 
       //state for house detail modal
       const [showDetails, setShowDetails] = useState(false);
       const [houseDetails, setHouseDetails] = useState(null);
+      const [icon, setIcon] = useState("candy");
 
       const [location, setLocation] = useState(null);
       const [errorMsg, setErrorMsg] = useState(null);
@@ -87,11 +96,7 @@ const Map = ({candyTypes}) => {
       }
 //end new
 
-      const updateHouses = (houseData) => {
-        let oldData = houses;
-        oldData.push(houseData);
-        setHouses(oldData);
-      }
+      
       const onPressMap = (e) => {
         setPinLocation(e.nativeEvent.coordinate)
 
@@ -103,27 +108,33 @@ const Map = ({candyTypes}) => {
         setHouseDetails(house);
 
       }
+      const updateHouses = (houseData) => {
+        let oldData = houses;
+        oldData.push(houseData);
+        setHouses(oldData);
+      }
   return (
     <View style={styles.container}>
-      <Header candyTypes={candyTypes} showSettings={showSettings} setShowSettings={setShowSettings}/>
+      <Header filterOn={filterOn} setFilterOn={setFilterOn} groupValues={filters} setGroupValues={setFilters} candyTypes={candyTypes} showSettings={showSettings} setShowSettings={setShowSettings}/>
         <View style={styles.mapContainer}>
     <MapView
       style={styles.map}
-      initialRegion={position}
+      region={position}
       onPress={onPressMap}
-      liteMode={true}
       userInterfaceStyle={"dark"}
       loadingEnabled={true}
       loadingBackgroundColor={"black"}
       tintColor="orange"
       showsMyLocationButton
+      onRegionChange={(e) => setPosition(e.nativeEvent)}
     >
       {pinLocation &&
       <CustomMarker
       // key={1}
       latitude={pinLocation.latitude}
       longitude={pinLocation.longitude}
-      icon={"down"}
+
+      
       />
       
       }
@@ -134,8 +145,10 @@ const Map = ({candyTypes}) => {
     key={String(index)}
     latitude={house.latitude}
     longitude={house.longitude}
-    onPress={() => onPressMarker(house)}
-    icon={house.hascandy ? "candy" : "none"}
+    onPress={() => {
+      onPressMarker(house);
+    }}
+    houseDetails={house}
     />
     )}
 
@@ -145,8 +158,22 @@ const Map = ({candyTypes}) => {
   {houseDetails &&
   <InfoModal houseDetails={houseDetails} showModal={showDetails} onClose={() => setShowDetails(false)} houseDetails={houseDetails}/>
   }
-  
+    {filterOn && <Box borderRadius={4} bg="primary.500" left={4} top={120} position="absolute" p="4" shadow={2}>
+      <Text mb={1}color="white" fontWeight={"bold"}>Candy filters:</Text>
+      <HStack >
+      {filters.map((value, index) =>
+        value && <Badge mr={1} colorScheme="coolGray">{candyTypes[index]}</Badge>
+      
+      
+
+      )}
+      </HStack>
+      
+    </Box>}
+    <Box position="absolute" bottom={40} >
     <InputModal pinLocation={pinLocation} candyTypes={candyTypes} updateHouses={updateHouses}/>
+    </Box>
+    
     </View>
         
 

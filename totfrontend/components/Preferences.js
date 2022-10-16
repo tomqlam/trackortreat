@@ -3,12 +3,12 @@ import { SafeAreaView, StyleSheet, View } from "react-native";
 import { useState, useEffect } from "react";
 import MapView from 'react-native-maps';
 import { Marker } from "react-native-maps";
-import { Checkbox, Heading, NativeBaseProvider, Text, Box, Button, Center, Input, Modal } from "native-base";
+import { VStack, Switch, Checkbox, Heading, NativeBaseProvider, Text, Box, Button, Center, Input, Modal } from "native-base";
 import * as Location from 'expo-location';
 import InputModal from './InputModal'
 
-const Preferences = ({showSettings, setShowSettings, candyTypes}) => {
-  const [groupValues, setGroupValues] = useState(candyTypes.map((candy) => false));
+const Preferences = ({filterOn, setFilterOn, setGroupValues, groupValues, showSettings, setShowSettings, candyTypes}) => {
+  
   const checkedItem =(index) => {
       let dummy = groupValues;
       dummy[index] = !dummy[index]
@@ -23,12 +23,18 @@ const Preferences = ({showSettings, setShowSettings, candyTypes}) => {
           <Modal.Content>
       <Modal.Header>Tell me what you want</Modal.Header>
             <Modal.Body>
-            <Heading size="sm" mb={1}>Preferred candies:</Heading>
+              <VStack space={3}>
+            <Heading size="sm">Enable candy filters?</Heading>
+              <Switch isChecked={filterOn} onToggle={()=>{console.log(filterOn);
+            setFilterOn(!filterOn);
+            }}></Switch>
+            <Heading size="sm" >Preferred candies:</Heading>
             <Box l="0">
               {candyTypes.map((candy, index) => 
-                    <Checkbox my={1} key={String(index)} onChange={() => checkedItem(index)}>{candy}</Checkbox>
+                    <Checkbox isDisabled={!filterOn} key={String(index)} onChange={() => checkedItem(index)}>{candy}</Checkbox>
                 )} 
                 </Box>
+                </VStack>
                 </Modal.Body>
                 <Modal.Footer>
                 <Button onPress={() => setShowSettings(false)}>I'm done</Button>

@@ -25,12 +25,12 @@ const InfoModal = ({houseDetails, showModal, onClose}) => {
     );
   return (
     <Center>
-      {/* <Button onPress={() => setShowModal(true)}>Button</Button> */}
       <Modal isOpen={showModal} onClose={onClose}>
         <Modal.Content maxWidth="400px">
           <Modal.CloseButton />
           <Modal.Header>Whatchu got?</Modal.Header>
           <Modal.Body>
+            <Text>Address: {houseDetails.houseaddress}</Text>
           {!houseDetails.hascandy ? 
             <Text>There's no candy!</Text>
         :
