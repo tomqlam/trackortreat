@@ -70,11 +70,13 @@ app.get('/api', (req: Request, res: Response) => {
 });
 // Show routes called in console during development
 if (EnvVars.nodeEnv === NodeEnvs.Dev) {
+  console.log("Running on Dev")
   app.use(morgan('dev'));
 }
 
 // Security
 if (EnvVars.nodeEnv === NodeEnvs.Production) {
+  console.log("Running on Prod")
   app.use(helmet());
 }
 // **** Add API routes **** //
